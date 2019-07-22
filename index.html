@@ -198,7 +198,7 @@
                 <!----
 		<div class="eurostat">eurostat</div>
 		<div class="statexp">Statistics Explained</div>
-		<!---->
+		-->
                 <a href="http://ec.europa.eu/eurostat/statistics-explained/index.php/Main_Page/fr">
                     <div class="statexptitle"></div>
                 </a>
@@ -774,26 +774,10 @@
                                 <span class="mw-headline" id="Crimes_et_d.C3.A9lits_enregistr.C3.A9s_par_les_services_de_police">Crimes et délits enregistrés par les services de police</span>
                             </h3>
                             <!--my chart.js-->
-                            <!-- <canvas id="chartInfo" class="callChartInfo" width="800px" height="500px"> </canvas> -->
-                            <canvas id="chart" width="750" height="480" style="border: 1px solid black;">Canvas is not supported</canvas>
+                             <canvas id="chartInfo" class="callChartInfo" width="800px" height="500px"> </canvas> 
+                            
                             <!--my JS-->
-                            <script>
-                                var misParam = {
-                                    miMargen: 0.80,
-                                    separZonas: 0.05,
-                                    tituloGraf: "Title of Chart",
-                                    tituloEjeX: "Country",
-                                    tituloEjeY: "Backlog Count",
-                                    nLineasDiv: 10,
-                                    mysColores: [
-                                        ["rgba(93,18,18,1)", "rgba(196,19,24,1)"], //red
-                                        ["rgba(171,115,51,1)", "rgba(251,163,1,1)"], //yellow
-                                    ],
-                                    anchoLinea: 2,
-                                };
-
-                                obtener_datos_tabla_convertir_en_array('table1', graficarBarras, 'chart', '750', '480', misParam, true);
-                            </script>
+                            
 
                             <table cellspacing="0" cellpadding="0" id="table1">
                                 <caption> Tableau 1: Infractions enregistrées par la police, 2002–12</caption>
