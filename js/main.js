@@ -14,6 +14,7 @@ function tableToJson(table) {
     } 
     return data; 
     }
+    JSON.stringify(tableToJson($0));
 //draw chart
 function drawChart() {
     var newChart = document.getElementById('chartInfo');
