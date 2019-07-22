@@ -28,7 +28,8 @@
     <link rel="stylesheet" href="./assets/statexpflat.css">
     <link rel="stylesheet" href="./assets/statexpflat-grid.css">
     <link rel="stylesheet" href="./assets/css/main.css">
-
+    <script type="text/javascript" src="js/HTMLtable2chart/graficarBarras.js"></script>
+    <script type="text/javascript" src="js/HTMLtable2chart/tabla2array.js"></script>
     <style>
         a:lang(ar),
         a:lang(ckb),
@@ -85,7 +86,7 @@
     </style>
 </head>
 
-<body onload="drawChart()" class="mediawiki ltr sitedir-ltr ns-110 ns-subject page-Archive_Crime_statistics_fr skin-statexpflat action-view" cz-shortcut-listen="true">
+<body class="mediawiki ltr sitedir-ltr ns-110 ns-subject page-Archive_Crime_statistics_fr skin-statexpflat action-view" cz-shortcut-listen="true">
 
 
     <div class="container">
@@ -773,9 +774,26 @@
                                 <span class="mw-headline" id="Crimes_et_d.C3.A9lits_enregistr.C3.A9s_par_les_services_de_police">Crimes et délits enregistrés par les services de police</span>
                             </h3>
                             <!--my chart.js-->
-                            <canvas id="chartInfo" class="callChartInfo" width="800px" height="500px"> </canvas>
+                            <!-- <canvas id="chartInfo" class="callChartInfo" width="800px" height="500px"> </canvas> -->
+                            <canvas id="chart" width="750" height="480" style="border: 1px solid black;">Canvas is not supported</canvas>
                             <!--my JS-->
+                            <script>
+                                var misParam = {
+                                    miMargen: 0.80,
+                                    separZonas: 0.05,
+                                    tituloGraf: "Title of Chart",
+                                    tituloEjeX: "Country",
+                                    tituloEjeY: "Backlog Count",
+                                    nLineasDiv: 10,
+                                    mysColores: [
+                                        ["rgba(93,18,18,1)", "rgba(196,19,24,1)"], //red
+                                        ["rgba(171,115,51,1)", "rgba(251,163,1,1)"], //yellow
+                                    ],
+                                    anchoLinea: 2,
+                                };
 
+                                obtener_datos_tabla_convertir_en_array('table1', graficarBarras, 'chart', '750', '480', misParam, true);
+                            </script>
 
                             <table cellspacing="0" cellpadding="0" id="table1">
                                 <caption> Tableau 1: Infractions enregistrées par la police, 2002–12</caption>
@@ -2045,6 +2063,7 @@
 
         <!--END PAGE-->
     </div>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
     <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
     <script src="./js/main.js"></script>
