@@ -23,14 +23,12 @@ console.log(data); */
 var table = document.getElementById("table1");
 var tableLen = table.rows.length;
 var data = { labels: [], country: [], area: [] };
-parseInt(data);
-console.log(data);
-
 for (var i = 1; i < tableLen; i++) {
     data.labels.push(table.rows[i].cells[0].innerText)
     data.country.push(table.rows[i].cells[1].innerText.replace(',', ''))
     data.area.push(table.rows[i].cells[2].innerText)
-    let changePass = parseInt(data);
+    console.log(data.area[0]);
+    let changePass = parseInt(data.area[0]);
     console.log(changePass);
 }
 
