@@ -20,9 +20,9 @@ for (var i = 1; i < tableInfo.rows.length; i++) {
 }
 console.log(data); */
 
-var table = document.getElementById("table1");
-var tableLen = table.rows.length;
-var data = { labels: [], country: [], area: [] };
+var table = document.getElementById("table1")
+var tableLen = table.rows.length
+var data = { labels: [], country: [], area: [] }
 for (var i = 1; i < tableLen; i++) {
     data.labels.push(table.rows[i].cells[0].innerText)
     data.country.push(table.rows[i].cells[1].innerText.replace(',', ''))
