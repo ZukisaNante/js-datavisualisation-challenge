@@ -18,6 +18,7 @@ function getRandomColor() {
 }
 //chart
 var canvas = document.getElementById("chartInfo") //calling canvas from html
+canvas.style.width = "100%";
 var ctx = canvas.getContext('2d')
 var myChart = new Chart(ctx, {
     type: 'line',
