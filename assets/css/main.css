@@ -1,3 +1,11 @@
 .callChartInfo {
     border: 1px solid black;
 }
+
+.chart-container {
+    padding-bottom: 50px;
+}
+
+#space {
+    padding: 10px;
+}

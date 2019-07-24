@@ -1,51 +1,38 @@
-//create variables
-//let headers = document.getElementsByTagName('h3'); //calling the header
-//var tableInfo = document.getElementById('table1'); //calling the table
-
-//converingtable HTML to an array
-
-/* var data = []; // first row needs to be headers var headers = []; 
-for (var i = 0; i < tableInfo.rows[0].cells.length; i++) {
-    headers[i] = tableInfo.rows[0].cells[i].innerHTML.toLowerCase().replace(/ /gi, ''); //gi ? google
-}
-// go through cells 
-for (var i = 1; i < tableInfo.rows.length; i++) {
-    var tableRow = tableInfo.rows[i];
-    var rowData = {};
-    for (var j = 0; j < tableRow.cells.length; j++) {
-        [headers[j]][headers[j]]
-        rowData[headers[j]] = tableRow.cells[j].innerHTML;
-    }
-    data.push(rowData);
-}
-console.log(data); */
-
+//getting data from html file and creating an array
 var table = document.getElementById("table1")
-var tableLen = table.rows.length
+var tableLength = table.rows.length
 var data = { labels: [], country: [], area: [] }
-for (var i = 1; i < tableLen; i++) {
-    data.labels.push(table.rows[i].cells[0].innerText)
-    data.country.push(table.rows[i].cells[1].innerText.replace(',', ''))
-    data.area.push(table.rows[i].cells[2].innerText)
-    console.log(data.area[0]);
-    let changePass = parseInt(data.area[0]);
-    console.log(changePass);
+for (var i = 1; i < tableLength; i++) {
+    data.labels.push(table.rows[i].cells[1].innerText)
+    data.country.push(table.rows[i].cells[2].innerText.replace(',', ''))
+    data.area.push(table.rows[i].cells[3].innerText)
 }
-
-var canvasP = document.getElementById("chartInfo")
-var ctxP = canvasP.getContext('2d')
-var myPieChart = new Chart(ctxP, {
+//random function to generate different colours
+function getRandomColor() {
+    var letters = '0123456789ABCDEF'.split('');
+    var color = '#';
+    for (var i = 0; i < 36; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+}
+//chart
+var canvas = document.getElementById("chartInfo") //calling canvas from html
+var ctx = canvas.getContext('2d')
+var myChart = new Chart(ctx, {
     type: 'line',
     data: {
         labels: data.labels,
         datasets: [{
             data: data.country,
-            backgroundColor: ["#64B5F6", "#FFD54F", "#2196F3", "#FFC107", "#1976D2", "#FFA000", "#0D47A1"],
-            hoverBackgroundColor: ["#B2EBF2", "#FFCCBC", "#4DD0E1", "#FF8A65", "#00BCD4", "#FF5722", "#0097A7"]
+            backgroundColor: ["#64B5F6", "#FFD54F", "#2196F3", "#FFC107", "#1976D2", "#FFA000", "#0D47A1", "#00FFFF", "#008080", "#00FFFF", "#008000", "#00FF00"],
+            hoverBackgroundColor: getRandomColor()
         }]
     },
     options: {
         legend: {
+            responsive: true,
+            maintainAspectRatio: false,
             display: true,
             position: "right"
         }
