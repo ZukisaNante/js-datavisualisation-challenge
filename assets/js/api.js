@@ -1,19 +1,5 @@
-//Getting data from external JSON
-
-var dataPoints = [];
-$.getJSON(" https://canvasjs.com/services/data/datapoints.php", function(data) {
-    $.each(data, function(key, value) {
-        dataPoints.push({ x: value[0], y: parseInt(value[1]) });
-    });
-    chart = new Chart("chartInfo", {
-        title: {
-            text: "Live Chart with dataPoints from External JSON"
-        },
-        data: [{
-            type: "line",
-            dataPoints: dataPoints,
-        }]
-    });
-    chart.render();
-    updateChart();
-});
+var text = '{[[0,15],[1,19],[2,16],[3,20],[4,15],[5,15],[6,20],[7,17],[8,14],[9,13]]}';
+console.log(text);
+var obj = JSON.parse(text);
+console.log(obj);
+document.getElementById("chartContainer").innerHTML = obj;
